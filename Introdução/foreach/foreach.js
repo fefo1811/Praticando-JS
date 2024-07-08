@@ -18,3 +18,13 @@ funcionarios.forEach((valor, indice, array) => {
 })
 
 console.log(funcionarios)
+
+
+// for
+console.log(convidados)
+for (let x = 0 ; x < convidados.length ; x++) {
+    if(convidados[x] == 'José') {
+        convidados[x] = 'Um novo valor'
+    }
+}
+console.log(convidados)
