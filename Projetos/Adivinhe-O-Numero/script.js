@@ -5,11 +5,11 @@
  * O método Math.trunc() irá remover as casas decimais
  * Por fim, o + 1 irá adicionar mais um número para que o número possa chegar até o 20
  * */
-const numeroSecreto = Math.trunc(Math.random()*20) + 1;
+let numeroSecreto = Math.trunc(Math.random()*20) + 1;
 let score = 20;
+let highscore = 0;
 
 document.querySelector('.score').textContent = score;
-document.querySelector('.number').textContent = numeroSecreto;
 
 
 document.querySelector('.check').addEventListener('click', () => {
@@ -23,6 +23,12 @@ document.querySelector('.check').addEventListener('click', () => {
     else if (tentativa === numeroSecreto) {
         document.querySelector('.message').textContent = "Congratulations!"
         document.querySelector('body').style.backgroundColor = 'green';
+        document.querySelector('.number').textContent = numeroSecreto;
+
+        if (score > highscore) {
+            highscore = score;
+            document.querySelector('.highscore').textContent = highscore;
+        }
     }
 
 // Quando a tentativa for maior do que o número secreto
@@ -63,4 +69,18 @@ document.querySelector('.check').addEventListener('click', () => {
     // if (tentativa < numeroSecreto) {
     //     document.querySelector('.message').textContent = "Too low!"
     // }
+})
+
+// Resetando os valores e dados
+document.querySelector('.again').addEventListener('click', () => {
+    score = 20
+    numeroSecreto = Math.trunc(Math.random()*20) + 1;
+
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.message').textContent = "Start guessing...";
+    document.querySelector('.number').textContent = "?";
+    document.querySelector('.guess').value = null;
+
+
 })
