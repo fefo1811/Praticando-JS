@@ -9,6 +9,13 @@ let numeroSecreto = Math.trunc(Math.random()*20) + 1;
 let score = 20;
 let highscore = 0;
 
+/**
+ * Função que ao passar o nome do seletor, captura o elemento correspondente e como segundo parâmetro recebe uma mensagem que será exibida no elemento.
+ * */
+const mostrarMensagem = ( seletor, mensagem ) => {
+    document.querySelector(`${seletor}`).textContent = mensagem;
+}
+
 document.querySelector('.score').textContent = score;
 
 
@@ -17,58 +24,40 @@ document.querySelector('.check').addEventListener('click', () => {
 
 // Quando o jogador não digita um número
     if (!tentativa) {
-        document.querySelector('.message').textContent = "No number!"
+        mostrarMensagem(".message", "No number!");
     }
 // Quando o jogador acerta o número secreto
     else if (tentativa === numeroSecreto) {
-        document.querySelector('.message').textContent = "Congratulations!"
+        // document.querySelector('.message').textContent = "Congratulations!"
+        mostrarMensagem(".message", "Congratulations");
         document.querySelector('body').style.backgroundColor = 'green';
-        document.querySelector('.number').textContent = numeroSecreto;
+        // document.querySelector('.number').textContent = numeroSecreto;
+        mostrarMensagem(".number", numeroSecreto);
 
         if (score > highscore) {
             highscore = score;
-            document.querySelector('.highscore').textContent = highscore;
+            // document.querySelector('.highscore').textContent = highscore;
+            mostrarMensagem(".highscore", highscore);
         }
     }
 
-// Quando a tentativa for maior do que o número secreto
-    else if (tentativa > numeroSecreto) {
-
+// Quando a tentativa for diferente do número secreto
+    else if ( tentativa !== numeroSecreto ) {
         if(score > 1) {
-            document.querySelector('.message').textContent = "Too high!";
+            // document.querySelector('.message').textContent = tentativa > numeroSecreto ? "Too high!" : "Too low!";
+            mostrarMensagem(".message", tentativa > numeroSecreto ? "Too high!" : "Too low!" );
             score--; // Pontuação diminui
-            document.querySelector('.score').textContent = score;
+            // document.querySelector('.score').textContent = score;
+            mostrarMensagem(".score", score);
         } else {
             // Quando a pontuação chega a 0 o jogo acaba
-            document.querySelector('.message').textContent = "You lost the game!";
-            document.querySelector('.score').textContent = 0;
-        }
+            // document.querySelector('.message').textContent = "You lost the game!";
+            mostrarMensagem(".message", "You lost the game!");
 
-// Quando a tentativa for menor do que o número secreto
-    } else if (tentativa < numeroSecreto) {
-
-        if (score > 1) {
-            document.querySelector('.message').textContent = "Too low!"
-            score--; // Pontuação diminui
-            document.querySelector('.score').textContent = score;
-        } else {
-            // Quando a pontuação chega a 0 o jogo acaba
-            document.querySelector('.message').textContent = "You lost the game!";
-            document.querySelector('.score').textContent = 0;
+            // document.querySelector('.score').textContent = 0;
+            mostrarMensagem(".score", 0);
         }
     }
-
-    // if (tentativa === numeroSecreto) {
-    //     document.querySelector('.message').textContent = "Congratulations!"
-    // }
-    //
-    // if (tentativa > numeroSecreto) {
-    //     document.querySelector('.message').textContent = "Too high!"
-    // }
-    //
-    // if (tentativa < numeroSecreto) {
-    //     document.querySelector('.message').textContent = "Too low!"
-    // }
 })
 
 // Resetando os valores e dados
