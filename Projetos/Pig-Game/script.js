@@ -23,35 +23,6 @@ let pontuacaoAtual1 = 0;
 let pontuacaoAtual2 = 0;
 
 
-const resetGame = () => {
-    playerScores.score1Elemento.textContent = 0;
-    playerScores.score2Elemento.textContent = 0;
-
-    dice.classList.add('hide');
-
-    pontuacaoTotal = [0, 0];
-
-    pontuacaoAtual1 = 0;
-    pontuacaoAtual2 = 0;
-
-
-    if ( players.player2.classList.contains('player--active') ) {
-        players.player2.classList.remove('player--active');
-        players.player1.classList.add('player--active');
-    }
-
-    if ( players.player1.classList.contains('player--winner') ) {
-        players.player1.classList.remove('player--winner');
-    } else if ( players.player2.classList.contains('player--winner') ) {
-        players.player2.classList.toggle('player--winner');
-    }
-
-    if ( btn.btnRoll.hasAttribute('disabled') && btn.btnHold.hasAttribute('disabled') ) {
-        btn.btnRoll.removeAttribute('disabled');
-        btn.btnHold.removeAttribute('disabled');
-    }
-}
-
 // Colocando as condições iniciais do jogo
 playerScores.score1Elemento.textContent = 0;
 playerScores.score2Elemento.textContent = 0;
@@ -87,7 +58,36 @@ const fazPontuacao = ( numeroAleatorio, players ) => {
         pontuacaoAtual2 = pontuacaoAtual2 + numeroAleatorio;
         document.getElementById('current--1').textContent = pontuacaoAtual2;
     }
+}
 
+// Reinicia o jogo
+const resetGame = () => {
+    playerScores.score1Elemento.textContent = 0;
+    playerScores.score2Elemento.textContent = 0;
+
+    dice.classList.add('hide');
+
+    pontuacaoTotal = [0, 0];
+
+    pontuacaoAtual1 = 0;
+    pontuacaoAtual2 = 0;
+
+
+    if ( players.player2.classList.contains('player--active') ) {
+        players.player2.classList.remove('player--active');
+        players.player1.classList.add('player--active');
+    }
+
+    if ( players.player1.classList.contains('player--winner') ) {
+        players.player1.classList.remove('player--winner');
+    } else if ( players.player2.classList.contains('player--winner') ) {
+        players.player2.classList.toggle('player--winner');
+    }
+
+    if ( btn.btnRoll.hasAttribute('disabled') && btn.btnHold.hasAttribute('disabled') ) {
+        btn.btnRoll.removeAttribute('disabled');
+        btn.btnHold.removeAttribute('disabled');
+    }
 }
 
 
@@ -153,4 +153,5 @@ btn.btnHold.addEventListener('click', () => {
     }
 })
 
+// Reinicia o jogo
 btn.btnNew.addEventListener('click', resetGame);
