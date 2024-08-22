@@ -27,6 +27,11 @@ const restaurante = {
 
     orderDelivery : function ({ inicialIndex, principalIndex, hora, endereco }) {
         console.log(`Pedido recebido! ${this.menuInicial[inicialIndex]} e ${this.menuPrincipal[principalIndex]} serão entregues em ${endereco} às ${hora}`);
+    },
+
+    orderPizza : function (ingredientePrincipal, ...outrosIngredientes) {
+        console.log(ingredientePrincipal);
+        console.log(outrosIngredientes)
     }
 }
 
@@ -61,4 +66,23 @@ const { nome: nomeRestaurante, horarioAbertura: horarioDeFuncionamento, categori
 
 // Desestruturando objetos aninhados
 const { sabado: {abre, fecha} } = horarioDeFuncionamento;
-console.log(abre, fecha); // Assim conseguimos pegar os dois valores 
+// console.log(abre, fecha); // Assim conseguimos pegar os dois valores 
+
+/**
+ * Códigos referentes a aula sobre Rest Pattern e Parâmetros
+ */
+
+// O Rest Pattern é usado para passarmos vários valores em uma função e convertê-los em um array.
+// Possui a sintaxe igual ao operador spread
+
+const [a, b, ...outros] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(a, outros); // Será impresso o valor armazenado em a (1) e em outros conterá os valores restantes dentro de um outro array de nome outros
+
+const { sabado, ...diaDaSemana } = restaurante.horarioAbertura;
+// c onsole.log(diaDaSemana);
+
+const add = function (...numbers) {
+    console.log(numbers);
+}
+
+restaurante.orderPizza("Cogumelos", 'Cebola', 'Queijo', 'Calabresa')
