@@ -1,4 +1,5 @@
-// Operador de Coalescência Nula
+'use strict';
+
 const restaurante = {
     nome: "Classico Italiano",
     endereco: "Via Angelo Tavanti 23, Firenze, Italia",
@@ -34,9 +35,28 @@ const restaurante = {
     }
 }
 
-/**
- * O operador retorna qualquer valor à sua esquerda quando o mesmo não for nullish (undefined ou null)
- */
-restaurante.numConvidados = 0;
-const convidados = restaurante.numConvidados ?? 10;
-console.log(convidados);
+// Há três operadores de atribuição lógicos que foram introduzidos no ES2021
+// Esses operadores são: ??=, ||=, &&=
+const rest1 = {
+    name: 'Capri',
+    // numGuests: 20
+    numGuests: 0
+}
+
+const rest2 = {
+    name: 'La Piazza',
+    owner: 'Giovanni Rossi'
+}
+
+// Operador de Coalescência Nula
+rest2.numGuests ??= 10;
+rest1.numGuests ??= 10;
+console.log(rest1);
+console.log(rest2);
+
+
+// Operador de Atribuição &&
+rest1.owner &&= '<ANONIMO>';
+rest2.owner &&= '<ANONIMO>';
+console.log(rest1);
+console.log(rest2);
