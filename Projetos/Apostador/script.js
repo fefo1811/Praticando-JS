@@ -67,5 +67,39 @@ const [ gkBorussia, ...fieldPlayersBorussia ] = players2;
  * 3. Create an array 'allPlayers' containing all players of both teams (22 players)
  * Extraindo os valores dos jogadores dos dois times com operador SPREAD e armazenando numa outra variável com operador REST 
  */
-const [ ...allPlayers ] = [ ...players1, ...players2 ];
+const allPlayers = [ ...players1, ...players2 ];
 // console.log(allPlayers);
+
+
+
+/**
+ * 4 . During the game, Bayern Munich (team 1) used 3 substitute players. So create  a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho', and 'Perisic' 
+ */
+
+const players1Final = [ ...players1, 'Thiago', 'Coutinho', 'Perisic' ];
+// console.log(players1Final);
+
+/**
+ * 5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
+ */
+const { team1, x: draw, team2 } = game.odds;
+// console.log(draw);
+
+/**
+ * 6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals who were scored (number of player names passed in)
+ */
+
+const printGoals = (...players) => {
+  console.log(`${players.length} goals were scored`);
+};
+
+// printGoals(...game.scored);
+// printGoals('Davi', 'Felipe', 'Valentin');
+
+/**
+ * 7. The team with the lower odd is more likely to win.
+ * Print to the console which teams is more likely to win, WITHOUT using an if/else statement or the ternaty operator
+ */
+
+team1 < team2 && console.log('Team 1 win');
+team1 > team2 && console.log('Team 2 win');
