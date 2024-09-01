@@ -62,13 +62,32 @@ for (const [i, el] of menu.entries()) {
 // const propriedades = Object.keys(restaurante.horarioAbertura);  // --> Retorna as CHAVES do objeto
 // const propriedades = Object.values(restaurante.horarioAbertura); //   --> Retorna os VALORES contidos nas chaves do Objeto
 const propriedades = Object.entries(restaurante.horarioAbertura);
-console.log(propriedades);
+// console.log(propriedades);
 
 // for (let elemento of propriedades) {
 //     console.log(elemento);
 // }
 
 // Object.entries Loop
-for ( let [ chave, valor ] of propriedades ) {
-    console.log(`Dia: ${chave} -- Horário de Funcionamento: das ${valor.abre}h às ${valor.fecha}h`);
-}
+// for ( let [ chave, valor ] of propriedades ) {
+//     console.log(`Dia: ${chave} -- Horário de Funcionamento: das ${valor.abre}h às ${valor.fecha}h`);
+// }
+
+
+/**
+ * Estruturas de dados: SET
+ */
+
+const ordersSet = new Set(['Macarrão', 'Pizza', 'Risoto', 'Macarrão', 'Pizza', 'Pizza']);
+// console.log(ordersSet);
+
+// console.log(ordersSet.size);         // ---> Tamanho de um conjunto
+// console.log(ordersSet.has('Pizza')); // ---> Verifica se há determinado valor no conjunto
+// console.log(ordersSet.has('Pão'));
+ordersSet.add('Pão de alho');           // ---> Adiciona valores novos ao conjunto
+// console.log(ordersSet);
+ordersSet.delete('Pão de alho')         // ---> Remove valor de um conjunto
+
+const staff = ['Garçom', 'Chef', 'Gerente', 'Garçom', 'Garçom', 'Chef'];
+const staffConjunto = [ ...new Set(staff) ];
+console.log(staffConjunto);
