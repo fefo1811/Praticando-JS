@@ -34,3 +34,13 @@ img {
     margin: 30px;
     width: 80%;
 }
+
+/* ======================== */
+/* Trabalhando com requisições POST */
+.artigoPOST {
+    height: 150px;
+    margin: 15px;
+    color: white;
+    text-align: center;
+    background-color: teal;
+}

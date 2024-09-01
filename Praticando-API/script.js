@@ -12,11 +12,12 @@ function createCountryCard(country) {
 
     card.append(name, flag);
     document.querySelector('.main__container').append(card);
+
 }
 
 // Trabalhando com requisições GET
 async function getCountry() {
-    const resposta = await fetch('https://restcountries.com/v3.1/name/korea');
+    const resposta = await fetch('https://restcountries.com/v3.1/name/brazil');
     const country = await resposta.json();
     console.log(country);
 

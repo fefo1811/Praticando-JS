@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "json-server": "json-server --watch db.json"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.2"
+  },
+  "name": "praticando-api",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "Felipe da Silva Rodrigues",
+  "license": "ISC",
+  "description": ""
+}
