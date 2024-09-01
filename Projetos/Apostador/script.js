@@ -39,6 +39,8 @@ const game = {
     },
   };
 
+  // Coding Challenge #1
+
 /**
  * 1. Create one player array for each team (variables 'players1' and 'players2')
  * @players1 = Bayern Munich
@@ -101,5 +103,37 @@ const printGoals = (...players) => {
  * Print to the console which teams is more likely to win, WITHOUT using an if/else statement or the ternaty operator
  */
 
-team1 < team2 && console.log('Team 1 win');
-team1 > team2 && console.log('Team 2 win');
+//team1 < team2 && console.log('Team 1 win'); // --> Resultados
+//team1 > team2 && console.log('Team 2 win');
+
+
+  // Coding Challenge #2
+
+/**
+ * 1. Loop over the game.scored array and print each player name to the console, along with the goal number
+ */
+for (const [ i, playerName ] of game.scored.entries()) {
+  // console.log(`Goal ${i + 1}: ${playerName}`);
+}
+
+/**
+ * 2. Use a loop to calculate the average odd and log it to the console 
+ */
+let numeros = 0;
+
+for ( let valor of Object.values(game.odds) ) {
+  numeros += valor;
+}
+
+// console.log((numeros / 3).toFixed(2));
+
+/**
+ * 3. Print the 3 odds to the console, but in a nice formatted way
+ */
+
+for ( const [ team, odd ] of Object.entries(game.odds) ) {
+  const teamString = team === 'x' ? 'draw' : `victory ${game[team]}`;
+
+
+  console.log(`Odd of ${teamString}: ${odd}`);
+}
