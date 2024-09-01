@@ -38,11 +38,37 @@ const restaurante = {
 
 const menu = [ ...restaurante.menuInicial, ...restaurante.menuPrincipal];
 
-for (const item of menu) console.log(item);
+// for (const item of menu) console.log(item);
 
 // Forma de pegar o índice em um loop for...of
 for (const [i, el] of menu.entries()) {
-    console.log(`${i + 1}: ${el}`);
+    // console.log(`${i + 1}: ${el}`);
 }
 
-//console.log(...menu.entries()) // Loga no Terminal arrays contendo o índice e o valor
+// console.log(...menu.entries()) // Loga no Terminal arrays contendo o índice e o valor
+
+
+/**
+ * Encadeamento opcional
+ */
+
+//console.log(restaurante.horarioAbertura.segunda?.abre);
+
+
+/**
+ * Loop de Objetos: Object.keys, Object.values, Object.entries
+ */
+
+// const propriedades = Object.keys(restaurante.horarioAbertura);  // --> Retorna as CHAVES do objeto
+// const propriedades = Object.values(restaurante.horarioAbertura); //   --> Retorna os VALORES contidos nas chaves do Objeto
+const propriedades = Object.entries(restaurante.horarioAbertura);
+console.log(propriedades);
+
+// for (let elemento of propriedades) {
+//     console.log(elemento);
+// }
+
+// Object.entries Loop
+for ( let [ chave, valor ] of propriedades ) {
+    console.log(`Dia: ${chave} -- Horário de Funcionamento: das ${valor.abre}h às ${valor.fecha}h`);
+}
