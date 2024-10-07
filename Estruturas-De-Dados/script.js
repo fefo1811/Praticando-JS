@@ -90,4 +90,62 @@ ordersSet.delete('Pão de alho')         // ---> Remove valor de um conjunto
 
 const staff = ['Garçom', 'Chef', 'Gerente', 'Garçom', 'Garçom', 'Chef'];
 const staffConjunto = [ ...new Set(staff) ];
-console.log(staffConjunto);
+// console.log(staffConjunto);
+
+
+
+/**
+ * Estruturas de dados: MAP
+ */
+
+const question = new Map([
+    ['question', 'What is the best programming language in the world?'], 
+    [1, 'C'], 
+    [2, 'Java'], 
+    [3, 'Javascript'], 
+    ['correct', 3], 
+    [true, 'Correct! ❤️'],
+    [false, 'Try Again...']
+]);
+
+// console.log(question);
+
+// Convertendo Objeto em um Map
+const hoursOpening = new Map(Object.entries(restaurante.horarioAbertura));
+// console.log(hoursOpening);
+
+// Convertendo Map em um Array
+// console.log([...question]);
+
+
+// Quiz App
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//     typeof(key) === 'number' ? console.log(value) : null;
+// }
+
+// const answer = Number(prompt('Your Answer: ')); ---> Só funciona em Browser Web
+// question.get('correct') === answer ? console.log(question.get(true)) : console.log(question.get(false));
+
+/**
+ * Trabalhando com Strings
+ */
+
+const airline = "LATAM Linhas Aéreas";
+const plane = 'A321';
+
+// console.log(airline[1]); // Pegando a letra na posição 1
+// console.log(airline.length); // Tamanho da String
+// console.log(airline.lastIndexOf());
+// 
+// console.log(airline.slice(4, 6)); // Extraindo parte de uma String.
+// 
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Percorre do último índice até onde houver espaçamento. +1 para não pegar o espaço vazio.
+
+const checkMiddleSeat = ( assento ) => {
+    // B e C são assentos do meio em uma fileira de assentos.
+    assento.slice(-1) == 'B' || assento.slice(-1) == 'E' ? console.log('Você está num assento no meio da fileira') : console.log('Você está num assento lateral');
+}
+
+checkMiddleSeat('11E');
