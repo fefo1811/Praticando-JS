@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge - Reverse Geocoding</title>
+    <style>
+        /* Mobile-first */
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100dvh;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .container {
+            width: 85%;
+            height: 50dvh;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container #btn {
+            border: none;
+            border-radius: 5px;
+            background-color: chocolate;
+            
+            width: 40%;
+            height: 12%;
+            cursor: pointer;
+        }
+
+        .country_container {
+            /* border: 2px solid blue; */
+            width: 90%;
+            height: 80%;
+            margin-bottom: 3%;
+            display: none;
+        }
+
+        .country_container .country {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .country_container .country .country_img {
+            width: 80%;
+        }
+
+        .country_container .country .country_data {
+            width: 100%;
+        }
+
+        .country_container .country .country_data .country_title {
+            text-align: center;
+            margin-top: 1.5%;
+        }
+
+        .country_container .country .country_data .country_title h3,
+        .country_container .country .country_data .country_title h4 {
+            margin: 0;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                width: 70%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .country_container .country .country_img {
+                width: 40%;
+            }
+
+            .country_container .country .country_data {
+                width: auto;
+            }
+
+            .container #btn {
+                width: 25%;
+            }
+
+            .container {
+                height: 60dvh;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="country_container">
+            <!-- JavaScript will build content for this <div>  -->
+        </div>
+
+        <button id="btn">Where am I?</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
