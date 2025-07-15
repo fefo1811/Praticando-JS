@@ -53,3 +53,15 @@ const renderCountry = (country, locality) => {
 
 }
 // whereAmI(19.037, 72.873)
+
+/**
+ * Consuming Promises with Async/Await
+ */
+const whereAmI2 = async (country) => {
+    const response = await fetch(`https://restcountries.com/v3.1/name/${country.toLowerCase()}`);
+    const data = await response.json();
+    console.log(data);
+    renderCountry(data[0]);
+}
+whereAmI2("Portugal");
+console.log("FIRST");
