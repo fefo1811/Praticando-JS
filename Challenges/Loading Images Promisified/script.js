@@ -32,13 +32,48 @@ const createImage = (imgPath) => {
 };
 
 let current_img;
+/**
+ * CODING CHALLENGE #2
+ */
+// createImage("./img-1.webp").then((res) => {
+//     console.log("Image 1 loaded");
+//     current_img = res
+//     return wait(2);
+// }).then(() => {
+//     current_img.style.display = "none";
+//     return createImage("./img-2.webp")
+// })
+//   .catch(e => console.error(e));
 
-createImage("./img-1.webp").then((res) => {
-    console.log("Image 1 loaded");
-    current_img = res
-    return wait(2);
-}).then(() => {
-    current_img.style.display = "none";
-    return createImage("./img-2.webp")
-})
-  .catch(e => console.error(e));
+/**
+ * CODING CHALLENGE #3
+ */
+const loadNPause = async () => {
+    try {
+        let img = await createImage("./img-1.webp")
+        await wait(2)
+        img.style.display = "none";
+
+        img = await createImage("./img-2.webp")
+        await wait(2)
+        img.style.display = "none";
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+// loadNPause()
+
+const loadAll = async (img_path) => {
+    try {
+        const imgs = img_path.map(async (img) => {
+            await createImage(img)
+        })
+        const imgsEl = await Promise.all(imgs)
+        console.log(imgsEl)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+loadAll(["./img-1.webp", "./img-2.webp"])
